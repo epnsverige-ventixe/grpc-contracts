@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option csharp_namespace = "Shared.Grpc.Contracts.Event";
+
+service EventService {
+  rpc CheckAvailability (AvailabilityRequest) returns (AvailabilityReply);
+}
+
+message AvailabilityRequest {
+  string eventId = 1;
+  int32 requestedSeats = 2;
+}
+
+message AvailabilityReply {
+  bool isAvailable = 1;
+  string reason = 2;
+}
